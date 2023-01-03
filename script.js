@@ -43,18 +43,32 @@ for (let i = 1; i <= 9; i++) {
   let test = () => {
     div.textContent = player1.marker
     pick1.push(div.className)
-    const numbers = [1,3,5,7,9];
+    target = div.className
+    target = Number(target)
+    console.log({board})
+    console.log({target})
+    const filteredNumbers = board.filter(number => number !== target);
+  console.log(filteredNumbers);  // outputs [1, 2, 4, 5]
+  board = filteredNumbers
+
 
 // Pick a random index from the array
-const index = Math.floor(Math.random() * numbers.length);
+const index = Math.floor(Math.random() * board.length);
 
 // Get the element at the randomly chosen index
-const randomNumber = numbers[index];
-console.log(randomNumber)
+const randomNumber = board[index];
+console.log({randomNumber})
+const filteredNumbers2 = board.filter(number => number !== randomNumber);
+  console.log(filteredNumbers2);  // outputs [1, 2, 4, 5]
+  board = filteredNumbers2
+  const computerPlay = document.querySelector(`.div${randomNumber}`)
+  computerPlay.textContent = computer.marker
 
   }
   const div = document.createElement("div");
-  div.className = i;
+  div.className = `div${i}`;
   ticTacToe.appendChild(div);
   div.addEventListener('click', test)
+
+
 }
