@@ -14,16 +14,28 @@ const gameBoard = (() => {
 //players factory
 const playerFactory = (name, marker) => {
 const sayHello = () => console.log('hello!');
-return { name, marker, sayHello };
+picks = []
+return { name, marker, sayHello, picks };
 };
 
-const jeff = playerFactory('jeff', 'X');
-
-console.log(jeff.name); // 'jeff'
-
-jeff.sayHello(); // calls the function and logs 'hello!'
+const player1 = playerFactory('player1', 'X');
+const computer = playerFactory('computer', 'O')
 
 
+
+
+const ticTacToe = document.querySelector(".tic-tac-toe");
+
+  // Use a for loop to create and append the divs
+  for (let i = 1; i <= 9; i++) {
+    let test = () => {
+      div.textContent = player1.marker
+    }
+    const div = document.createElement("div");
+    div.className = `div${i}`;
+    ticTacToe.appendChild(div);
+    div.addEventListener('click', test)
+  }
 
 
 

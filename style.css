@@ -53,18 +53,18 @@ h1 {
   .tic-tac-toe div {
     min-width: 171px;
     min-height: 171px;
+    display: flex;
     border: 1px solid #ccc;
     column-gap: 10px;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
+    font-size: 120px;
     font-weight: bold;
+
     /* background-color: blue; */
   }
 .game-container {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
 }
