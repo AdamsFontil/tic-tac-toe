@@ -1,0 +1,70 @@
+/* Add a nice font to the page */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Add some space around the content */
+  body {
+    padding: 20px;
+  }
+
+  /* Make headings stand out */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+
+  /* Use a light background color */
+  body {
+    background-color: #f8f9fa;
+  }
+
+  /* Use a dark text color for easy reading */
+  body {
+    color: #343a40;
+  }
+
+  /* Add some subtle box shadows to elements */
+  .shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  /* Use smooth transitions between states */
+  .transition {
+    transition: all 0.2s ease-in-out;
+  }
+
+
+h1 {
+    text-align: center;
+}
+
+.tic-tac-toe {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 520px;
+    height: 520px;
+
+    align-items: center;
+    /* background-color: red; */
+  }
+
+  .tic-tac-toe div {
+    min-width: 171px;
+    min-height: 171px;
+    border: 1px solid #ccc;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    /* background-color: blue; */
+  }
+.game-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+}
