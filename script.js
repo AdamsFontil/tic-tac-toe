@@ -42,11 +42,12 @@ pick2 = []
 for (let i = 1; i <= 9; i++) {
   let test = () => {
     div.textContent = player1.marker
-    pick1.push(div.className)
-    target = div.className
+    pick1.push(div.id)
+    target = div.id
     target = Number(target)
-    console.log({board})
-    console.log({target})
+    console.log(div)
+    // console.log({board})
+    // console.log({target})
     const filteredNumbers = board.filter(number => number !== target);
   console.log(filteredNumbers);  // outputs [1, 2, 4, 5]
   board = filteredNumbers
@@ -63,12 +64,22 @@ const filteredNumbers2 = board.filter(number => number !== randomNumber);
   board = filteredNumbers2
   const computerPlay = document.querySelector(`.div${randomNumber}`)
   computerPlay.textContent = computer.marker
+  computerPlay.className = 'selected'
+  div.className = 'selected'
 
   }
   const div = document.createElement("div");
   div.className = `div${i}`;
+  div.id = i;
   ticTacToe.appendChild(div);
   div.addEventListener('click', test)
 
 
+
 }
+
+
+//needs to hide as much as possible
+// need to clean up
+// need to make sure that a div can't be clicked more than once
+// need logic to declare winner
