@@ -37,11 +37,29 @@ const filteredNumbers2 = board.filter(number => number !== randomNumber);
   computer.picks.push(Number(computerPlay.id))
   findOutWinner()
 
+
+
   if (player1.winner || computer.winner) {
     console.log('ok!!!!!')
     document.addEventListener('mousedown', hideOverlay)
     document.addEventListener('mousedown', hideOverlay2)
+    makeDivsBlank()
+    player1.winner = false;
+    computer.winner = false;
+
   }
+makeDivsBlank = () => {
+  for (let i = 1; i <= 9; i++) {
+  const divs = document.getElementById(`${i}`);
+  console.log(divs)
+  divs.className = `div${i}`;
+  board = [1,2,3,4,5,6,7,8,9],
+  player1.picks = []
+  computer.picks = []
+  divs.textContent = ''
+}
+
+}
 
 
   }
