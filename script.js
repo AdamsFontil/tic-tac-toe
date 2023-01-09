@@ -52,8 +52,24 @@ div.textContent = player1.marker
   div.className = 'selected'
   player1.picks.push(Number(div.id))
   computer.picks.push(Number(computerPlay.id))
+  console.log(player1.winner)
   findwinner()
-  })()
+  console.log(player1.winner)
+  if (player1.winner || computer.winner) {
+    console.log({player1})
+    computerPlay.textContent = ''
+    document.addEventListener('mousedown', hideOverlay)
+    document.addEventListener('mousedown', hideOverlay2)
+    document.addEventListener('mousedown', makeDivsBlank)
+    player1.winner = false;
+    computer.winner = false;
+
+  } else if (player1.winner === false) {
+    console.log('remove event listener')
+    document.removeEventListener('mousedown', makeDivsBlank)
+  }
+})()
+
 });
 })()
 
@@ -97,18 +113,7 @@ createBoard = (() => {
   } else if (computer.picks.length > 3) {
     console.log('draw')
   }
-  if (player1.winner || computer.winner) {
-    console.log({player1})
-    document.addEventListener('mousedown', hideOverlay)
-    document.addEventListener('mousedown', hideOverlay2)
-    document.addEventListener('mousedown', makeDivsBlank)
-    player1.winner = false;
-    computer.winner = false;
 
-  } else if (player1.winner === false) {
-    console.log('remove event listener')
-    document.removeEventListener('mousedown', makeDivsBlank)
-  }
 }
  })()
 
