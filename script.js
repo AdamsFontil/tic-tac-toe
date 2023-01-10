@@ -56,8 +56,6 @@ div.textContent = player1.marker
   findwinner()
   console.log(player1.winner)
   if (player1.winner || computer.winner) {
-    console.log({player1})
-    computerPlay.textContent = ''
     document.addEventListener('mousedown', hideOverlay)
     document.addEventListener('mousedown', hideOverlay2)
     document.addEventListener('mousedown', makeDivsBlank)
@@ -67,6 +65,8 @@ div.textContent = player1.marker
   } else if (player1.winner === false) {
     console.log('remove event listener')
     document.removeEventListener('mousedown', makeDivsBlank)
+  } else if (player1.winner === true) {
+    computerPlay.textContent = ''
   }
 })()
 
@@ -131,6 +131,35 @@ function hideOverlay() {
 }
 function hideOverlay2() {
   document.getElementById("overlay2").style.display = "none";
+}
+
+function minimax(board) {
+  // If the game is over, return the score for the current player
+  if (gameOver(board)) {
+      return score(board);
+  }
+
+  // Initialize the best score to the lowest possible value
+  let bestScore = Number.NEGATIVE_INFINITY;
+  let bestMove = null;
+
+  // Consider all possible moves
+  for (let move of possibleMoves(board)) {
+      // Make the move on a copy of the board
+      let newBoard = makeMove(board, move);
+      // Recursively find the best move for the opponent
+      let score = minimax(newBoard);
+      // Undo the move on the copy of the board
+      newBoard = undoMove(newBoard, move);
+
+      // If the score is better than the current best score, update the best score and move
+      if (score > bestScore) {
+          bestScore = score;
+          bestMove = move;
+      }
+  }
+
+  return bestMove;
 }
 
 
