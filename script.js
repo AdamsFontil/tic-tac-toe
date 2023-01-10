@@ -4,11 +4,11 @@ const gameBoard = (() => {
 })();
 
 //players factory
-const playerFactory = (name, marker) => {
+playerFactory = ((name, marker) => {
 picks = [],
 winner = false
-return {marker, picks};
-};
+return {marker, picks, winner};
+})
 
 const player1 = playerFactory('player1', 'X');
 const computer = playerFactory('computer', 'O')
@@ -55,18 +55,19 @@ div.textContent = player1.marker
   console.log(player1.winner)
   findwinner()
   console.log(player1.winner)
-  if (player1.winner || computer.winner) {
+  if (player1.winner) {
     document.addEventListener('mousedown', hideOverlay)
-    document.addEventListener('mousedown', hideOverlay2)
     document.addEventListener('mousedown', makeDivsBlank)
+    computerPlay.textContent = ''
     player1.winner = false;
-    computer.winner = false;
-
-  } else if (player1.winner === false) {
+  } else if (player1.winner === false && computer.winner === false  ) {
     console.log('remove event listener')
     document.removeEventListener('mousedown', makeDivsBlank)
-  } else if (player1.winner === true) {
-    computerPlay.textContent = ''
+  } else if (computer.winner === true) {
+    console.log('computer shouldnot play')
+    document.addEventListener('mousedown', hideOverlay2)
+    document.addEventListener('mousedown', makeDivsBlank)
+    computer.winner = false;
   }
 })()
 
